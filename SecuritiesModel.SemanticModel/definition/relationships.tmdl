@@ -1,0 +1,8 @@
+relationship 1b1023ad-62e5-f8c1-1892-dc2c948f84a1
+	fromColumn: fact_trade_raw.security_id
+	toColumn: dim_security_raw.security_id
+
+relationship 81b9530f-b213-3fc3-e83d-abc5f2b4ee58
+	fromColumn: fact_settlement_raw.trade_id
+	toColumn: fact_trade_raw.trade_id
+

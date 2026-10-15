@@ -1,0 +1,77 @@
+table fact_settlement_raw
+	lineageTag: 229e9976-e19a-49cc-8489-97154583e087
+	sourceLineageTag: [dbo].[fact_settlement_raw]
+
+	column settlement_id
+		dataType: string
+		lineageTag: 82ef3835-a310-48c7-9379-f7f06ac08526
+		sourceLineageTag: settlement_id
+		summarizeBy: none
+		sourceColumn: settlement_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column trade_id
+		dataType: string
+		lineageTag: 3253df55-c1a5-4ec7-b36a-2573aec16b49
+		sourceLineageTag: trade_id
+		summarizeBy: none
+		sourceColumn: trade_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column expected_settlement_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8fc21b3b-d515-41be-a968-56e1b63192c4
+		sourceLineageTag: expected_settlement_date
+		summarizeBy: none
+		sourceColumn: expected_settlement_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_settlement_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 468e8d78-4071-4337-8558-ae9130ee3457
+		sourceLineageTag: actual_settlement_date
+		summarizeBy: none
+		sourceColumn: actual_settlement_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: 15bc9f42-0d84-4ac3-b601-73b1a990738e
+		sourceLineageTag: status
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column settled_amount
+		dataType: double
+		lineageTag: 9074449f-df05-44f2-839a-d0ca079c2eac
+		sourceLineageTag: settled_amount
+		summarizeBy: sum
+		sourceColumn: settled_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column failure_reason
+		dataType: string
+		lineageTag: 9b2c6465-32ac-42d4-ab40-40aab4ee4147
+		sourceLineageTag: failure_reason
+		summarizeBy: none
+		sourceColumn: failure_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_settlement_raw = entity
+		mode: directLake
+		source
+			entityName: fact_settlement_raw
+			expressionSource: 'DirectLake - SecuritiesLakehouse'
+

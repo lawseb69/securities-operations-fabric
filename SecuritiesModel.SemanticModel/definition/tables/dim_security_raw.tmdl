@@ -1,0 +1,64 @@
+table dim_security_raw
+	lineageTag: df948253-a70d-4ebb-88b4-2e9445fce020
+	sourceLineageTag: [dbo].[dim_security_raw]
+
+	column security_id
+		dataType: string
+		lineageTag: 4a6fdc2a-803e-415b-9d43-b6d744a56602
+		sourceLineageTag: security_id
+		summarizeBy: none
+		sourceColumn: security_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column ticker
+		dataType: string
+		lineageTag: cc0667cf-6e36-4ec4-ad01-413480af9aad
+		sourceLineageTag: ticker
+		summarizeBy: none
+		sourceColumn: ticker
+
+		annotation SummarizationSetBy = Automatic
+
+	column security_name
+		dataType: string
+		lineageTag: eec0b728-5ce8-4de9-8e04-e9c15cbcda25
+		sourceLineageTag: security_name
+		summarizeBy: none
+		sourceColumn: security_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column asset_class
+		dataType: string
+		lineageTag: 970a3cbd-616a-4a98-8606-96055a538346
+		sourceLineageTag: asset_class
+		summarizeBy: none
+		sourceColumn: asset_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency
+		dataType: string
+		lineageTag: e14fdadf-251a-4240-bfb2-be267f62355c
+		sourceLineageTag: currency
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column exchange
+		dataType: string
+		lineageTag: c8c71b73-3370-49d4-a457-24f179047e5b
+		sourceLineageTag: exchange
+		summarizeBy: none
+		sourceColumn: exchange
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_security_raw = entity
+		mode: directLake
+		source
+			entityName: dim_security_raw
+			expressionSource: 'DirectLake - SecuritiesLakehouse'
+

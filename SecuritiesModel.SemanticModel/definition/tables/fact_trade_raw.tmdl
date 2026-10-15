@@ -1,0 +1,87 @@
+table fact_trade_raw
+	lineageTag: 6b8236bd-807d-4136-b06e-118b51e0f3b6
+	sourceLineageTag: [dbo].[fact_trade_raw]
+
+	column trade_id
+		dataType: string
+		lineageTag: d0538fd2-4b4c-48d4-a720-c2ce11ed5834
+		sourceLineageTag: trade_id
+		summarizeBy: none
+		sourceColumn: trade_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column security_id
+		dataType: string
+		lineageTag: 992dcb47-8111-4b00-9c90-888b6735f2b9
+		sourceLineageTag: security_id
+		summarizeBy: none
+		sourceColumn: security_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column trade_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: feb79b1e-2dee-4324-b21a-0a3160ec527f
+		sourceLineageTag: trade_date
+		summarizeBy: none
+		sourceColumn: trade_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column settlement_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c26a9a4a-5ba0-4753-81ed-778eec94bc70
+		sourceLineageTag: settlement_date
+		summarizeBy: none
+		sourceColumn: settlement_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column trade_type
+		dataType: string
+		lineageTag: e1617f6c-46f9-44ac-ad97-b430f569ed8f
+		sourceLineageTag: trade_type
+		summarizeBy: none
+		sourceColumn: trade_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: f806b5af-d9b4-4378-a5ad-fc08499de995
+		sourceLineageTag: quantity
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column price
+		dataType: double
+		lineageTag: 6cefd100-f529-465f-a06d-f4b356e69395
+		sourceLineageTag: price
+		summarizeBy: sum
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column counterparty_id
+		dataType: string
+		lineageTag: 61ed1670-7e07-4d15-8f7a-1484f3fa7ec5
+		sourceLineageTag: counterparty_id
+		summarizeBy: none
+		sourceColumn: counterparty_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_trade_raw = entity
+		mode: directLake
+		source
+			entityName: fact_trade_raw
+			expressionSource: 'DirectLake - SecuritiesLakehouse'
+
