@@ -130,6 +130,8 @@ df_reconciliation.write.format("delta").mode("overwrite").saveAsTable("gold_sett
 
 display(df_reconciliation)
 
+print("Data validation and audit pipeline execution completed successfully.")
+
 # METADATA ********************
 
 # META {
