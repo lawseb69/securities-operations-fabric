@@ -22,6 +22,7 @@
 
 # CELL ********************
 
+# Portfolio baseline build
 from pyspark.sql.functions import col, to_date, trim, upper, when
 
 # 1. Load the raw tables
