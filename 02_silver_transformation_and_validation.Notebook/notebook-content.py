@@ -64,7 +64,7 @@ print(f"Total Raw Trades: {df_trades_raw.count()}")
 print(f"Clean Trades Written to Silver: {df_silver_trades.count()}")
 print(f"Rejected Trades Written to Exceptions: {df_rejected_trades.count()}")
 
-raise Exception("Simulated daily production ETL failure for alert testing.")
+
 
 # METADATA ********************
 
